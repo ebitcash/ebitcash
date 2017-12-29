@@ -1,0 +1,8 @@
+/usr/bin/ebitcash-cli		--	gen_context(system_u:object_r:ebitcash_exec_t,s0)
+/usr/sbin/ebitcashd		--	gen_context(system_u:object_r:ebitcash_exec_t,s0)
+/usr/lib(64)?/ebitcash/ebitcashd		--	gen_context(system_u:object_r:ebitcash_exec_t,s0)
+
+/etc/ebitcash(/.*)?		gen_context(system_u:object_r:ebitcash_conf_t,s0)
+/var/lib/ebitcash(/.*)?		gen_context(system_u:object_r:ebitcash_var_lib_t,s0)
+
+(/var)?/run/ebitcashd(/.*)?   gen_context(system_u:object_r:ebitcash_var_run_t,s0)

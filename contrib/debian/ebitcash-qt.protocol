@@ -1,0 +1,11 @@
+[Protocol]
+exec=ebitcash-qt '%u'
+protocol=ebitcash
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

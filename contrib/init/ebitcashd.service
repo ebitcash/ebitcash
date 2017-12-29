@@ -1,0 +1,22 @@
+[Unit]
+Description=eBitcash's distributed currency daemon
+After=network.target
+
+[Service]
+User=ebitcash
+Group=ebitcash
+
+Type=forking
+PIDFile=/var/lib/ebitcashd/ebitcashd.pid
+ExecStart=/usr/bin/ebitcashd -daemon -pid=/var/lib/ebitcashd/ebitcashd.pid \
+-conf=/etc/ebitcash/ebitcash.conf -datadir=/var/lib/ebitcashd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

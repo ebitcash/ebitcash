@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/ebitcash/.ebitcash" ]; then
+	EBITCASHD_DEFAULT_DATADIR="/var/lib/ebitcash/.ebitcash"
+else
+	EBITCASHD_DEFAULT_DATADIR="/var/lib/ebitcashd"
+fi
+
+EBITCASHD_CONFIGFILE=${EBITCASHD_CONFIGFILE:-/etc/ebitcash/ebitcash.conf}
+EBITCASHD_PIDDIR=${EBITCASHD_PIDDIR:-/var/run/ebitcashd}
+EBITCASHD_PIDFILE=${EBITCASHD_PIDFILE:-${EBITCASHD_PIDDIR}/ebitcashd.pid}
+EBITCASHD_DATADIR=${EBITCASHD_DATADIR:-${EBITCASHD_DEFAULT_DATADIR}}
+EBITCASHD_USER=${EBITCASHD_USER:-${EBITCASH_USER:-ebitcash}}
+EBITCASHD_GROUP=${EBITCASHD_GROUP:-ebitcash}
+EBITCASHD_BIN=${EBITCASHD_BIN:-/usr/bin/ebitcashd}
+EBITCASHD_NICE=${EBITCASHD_NICE:-${NICELEVEL:-0}}
+EBITCASHD_OPTS="${EBITCASHD_OPTS:-${EBITCASH_OPTS}}"
+
+name="eBitcash Core Daemon"
+description="eBitcash cryptocurrency P2P network daemon"
+
+command="/usr/bin/ebitcashd"
+command_args="-pid=\"${EBITCASHD_PIDFILE}\" \
+		-conf=\"${EBITCASHD_CONFIGFILE}\" \
+		-datadir=\"${EBITCASHD_DATADIR}\" \
+		-daemon \
+		${EBITCASHD_OPTS}"
+
+required_files="${EBITCASHD_CONFIGFILE}"
+start_stop_daemon_args="-u ${EBITCASHD_USER} \
+			-N ${EBITCASHD_NICE} -w 2000"
+pidfile="${EBITCASHD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${EBITCASHD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${EBITCASHD_USER}:${EBITCASHD_GROUP}" \
+	"${EBITCASHD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${EBITCASHD_USER}:${EBITCASHD_GROUP}" \
+	"${EBITCASHD_PIDDIR}"
+
+	checkpath -f \
+	-o ${EBITCASHD_USER}:${EBITCASHD_GROUP} \
+	-m 0660 \
+	${EBITCASHD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${EBITCASHD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run ebitcashd."
+		eerror "The setting must appear in ${EBITCASHD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"eBitcash Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

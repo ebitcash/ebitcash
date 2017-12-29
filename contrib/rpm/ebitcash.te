@@ -1,0 +1,81 @@
+policy_module(ebitcash, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type ebitcash_t;
+type ebitcash_exec_t;
+init_daemon_domain(ebitcash_t, ebitcash_exec_t)
+
+permissive ebitcash_t;
+
+type ebitcash_initrc_exec_t;
+init_script_file(ebitcash_initrc_exec_t)
+
+type ebitcash_conf_t;
+files_type(ebitcash_conf_t)
+
+type ebitcash_var_lib_t;
+files_type(ebitcash_var_lib_t)
+
+type ebitcash_var_run_t;
+files_type(ebitcash_var_run_t)
+
+type ebitcash_port_t;
+corenet_port(ebitcash_port_t)
+
+########################################
+#
+# ebitcash local policy
+#
+allow ebitcash_t self:process { fork };
+
+allow ebitcash_t self:fifo_file rw_fifo_file_perms;
+allow ebitcash_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(ebitcash_t, ebitcash_conf_t, ebitcash_conf_t)
+manage_files_pattern(ebitcash_t, ebitcash_conf_t, ebitcash_conf_t)
+
+manage_dirs_pattern(ebitcash_t, ebitcash_var_lib_t, ebitcash_var_lib_t)
+manage_files_pattern(ebitcash_t, ebitcash_var_lib_t, ebitcash_var_lib_t)
+files_var_lib_filetrans(ebitcash_t, ebitcash_var_lib_t, { dir file })
+
+manage_dirs_pattern(ebitcash_t, ebitcash_var_run_t, ebitcash_var_run_t)
+manage_files_pattern(ebitcash_t, ebitcash_var_run_t, ebitcash_var_run_t)
+
+sysnet_dns_name_resolve(ebitcash_t)
+corenet_all_recvfrom_unlabeled(ebitcash_t)
+
+allow ebitcash_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(ebitcash_t)
+corenet_tcp_sendrecv_generic_node(ebitcash_t)
+corenet_tcp_sendrecv_all_ports(ebitcash_t)
+corenet_tcp_bind_generic_node(ebitcash_t)
+
+gen_require(`
+    type ebitcash_port_t;
+')
+allow ebitcash_t ebitcash_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type ebitcash_port_t;
+')
+allow ebitcash_t ebitcash_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(ebitcash_t)
+
+files_read_etc_files(ebitcash_t)
+
+miscfiles_read_localization(ebitcash_t)
+
+sysnet_dns_name_resolve(ebitcash_t)
+
+allow ebitcash_t ebitcash_exec_t:file execute_no_trans;
+allow ebitcash_t self:process setsched;
+corecmd_exec_ls(ebitcash_t)
+corenet_tcp_connect_http_port(ebitcash_t)
+dev_read_urand(ebitcash_t)
+fs_getattr_xattr_fs(ebitcash_t)
+kernel_read_system_state(ebitcash_t)

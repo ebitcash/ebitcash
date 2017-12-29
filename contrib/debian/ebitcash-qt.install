@@ -1,0 +1,6 @@
+usr/local/bin/ebitcash-qt usr/bin
+share/pixmaps/ebitcash32.xpm usr/share/pixmaps
+share/pixmaps/ebitcash16.xpm usr/share/pixmaps
+share/pixmaps/ebitcash128.png usr/share/pixmaps
+debian/ebitcash-qt.desktop usr/share/applications
+debian/ebitcash-qt.protocol usr/share/kde4/services/

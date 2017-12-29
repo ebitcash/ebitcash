@@ -1,0 +1,33 @@
+# /etc/conf.d/ebitcashd: config file for /etc/init.d/ebitcashd
+
+# Config file location
+#EBITCASHD_CONFIGFILE="/etc/ebitcash/ebitcash.conf"
+
+# What directory to write pidfile to?  (created and owned by $EBITCASHD_USER)
+#EBITCASHD_PIDDIR="/var/run/ebitcashd"
+
+# What filename to give the pidfile
+#EBITCASHD_PIDFILE="${EBITCASHD_PIDDIR}/ebitcashd.pid"
+
+# Where to write ebitcashd data (be mindful that the blockchain is large)
+#EBITCASHD_DATADIR="/var/lib/ebitcashd"
+
+# User and group to own ebitcashd process
+#EBITCASHD_USER="ebitcash"
+#EBITCASHD_GROUP="ebitcash"
+
+# Path to ebitcashd executable
+#EBITCASHD_BIN="/usr/bin/ebitcashd"
+
+# Nice value to run ebitcashd under
+#EBITCASHD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#EBITCASHD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for ebitcashd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+EBITCASHD_SIGTERM_TIMEOUT=60

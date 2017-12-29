@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=eBitcash Core
+Comment=Connect to the eBitcash P2P Network
+Comment[de]=Verbinde mit dem eBitcash peer-to-peer Netzwerk
+Comment[fr]=eBitcash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=eBitcash, eşten eşe kriptografik sanal para birimi
+Exec=ebitcash-qt %u
+Terminal=false
+Type=Application
+Icon=ebitcash128
+MimeType=x-scheme-handler/ebitcash;
+Categories=Office;Finance;
