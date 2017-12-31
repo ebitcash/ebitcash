@@ -1,3 +1,0 @@
-# Nmap 6.40 scan initiated Fri Jun 30 18:28:11 2017 as: nmap -p 80 -o html5player.org
-WARNING: No targets were specified, so 0 hosts scanned.
-# Nmap done at Fri Jun 30 18:28:11 2017 -- 0 IP addresses (0 hosts up) scanned in 0.03 seconds
