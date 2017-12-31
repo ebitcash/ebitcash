@@ -197,8 +197,8 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x24, 0x86, 0xE9, 0x3D};
         base58Prefixes[EXT_SECRET_KEY] = {0x24, 0x86, 0xFE, 0xD5};
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
+        //vFixedSeeds.clear();
+        //vSeeds.clear();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
