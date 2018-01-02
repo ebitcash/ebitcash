@@ -80,24 +80,15 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
 
-    	/*Json::Value conf;   // will contains the root value after parsing.
-		Json::Reader reader;
-		std::ifstream conf_file("./config.json", std::ifstream::binary);
-		conf_file >> conf;
-		reader.parse(conf_file, conf, false );
-		//cout << root["name"] << "\n";
-		std::string powLimit = conf["powLimit"].asString();*/
-    	std::string powLimit = "0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 100000;
-		consensus.BIP34Height = 1;//21111;
+		consensus.BIP34Height = 1;
 		consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
-		consensus.BIP65Height = 2;//581885; // 00000000007f6655f22f98e72ed80d8b06dc761d5da09df0fa1dc4be4f861eb6
-		consensus.BIP66Height = 3;//330776; // 000000002104c8c45e99a8853285a3b592602a3ccde2b832481da85e9e4ba182
-		consensus.powLimit = uint256S(powLimit);
+		consensus.BIP65Height = 2;
+		consensus.BIP66Height = 3;
+		consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 		consensus.nPowTargetTimespan = 4 * 60 * 60;
-		consensus.nPowTargetSpacing = 2 * 60;//10 * 60;
+		consensus.nPowTargetSpacing = 2 * 60;
 		consensus.fPowAllowMinDifficultyBlocks = true;
 		consensus.fPowNoRetargeting = false;
 		consensus.nRuleChangeActivationThreshold = 114; // 95% of 120
@@ -135,61 +126,13 @@ public:
         nDefaultPort = 9555;
         nPruneAfterHeight = 1000;
 
-        /*uint32_t nTime = conf["nTime"].asInt();
-        uint32_t nNonce = conf["nNonce"].asInt();
-        uint32_t nBits = conf["nBits"].asInt();
-        uint32_t nVersion = conf["nVersion"].asInt();
-        uint32_t nReward = conf["nReward"].asInt();
-        printf("nTime: %d - nNonce: %d - nBits: %d - nVersion: %d - nReward: %d\n", nTime, nNonce, nBits, nVersion, nReward );
-        */
-        //genesis = CreateGenesisBlock(1496275200, 2, 0x1d00ffff, 1, 50 * COIN);
         genesis = CreateGenesisBlock(1448928000, 2191336, 0x1e0ffff0, 1, 10000 * COIN);
-        //0x1e0ffff0 0x1f00ffff
-        //current: 1499337599
-		
-		/*printf("%s\n", genesis.GetHash().ToString().c_str() );
-        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str() );*/
-
-        bool fNegative;
-		bool fOverflow;
-		arith_uint256 bnTarget;
-		//0d81b10e5ed6d511a3b153796ad376401288ef60526a01c312ccb14c174f13b8
-		        //7d01c3a82283e280f69a8a5364cc344e0f87b8618523e0d3a45bb4c9ea1bc0e1
-		bnTarget.SetCompact(0x1e0ffff0, &fNegative, &fOverflow);
-		
         consensus.hashGenesisBlock = genesis.GetHash();
-        //assert(consensus.hashGenesisBlock == uint256S("0x000006802e01ee7aa8b6bd8b6d6dfacaa03146acdaf3782df68f2f6cfa95c3f5"));
-        //assert(genesis.hashMerkleRoot == uint256S("0xff41162d03e3434bd8a92ceb9729c97e4d3035d869c17da2269a6fa5bf5b6655"));
-        //consensus.powLimit
-
-        //uint256 hashGenesisBlock = uint256S("0x01");
-        printf("bnTarget: %s\n", bnTarget.GetHex().c_str() );
-        printf("powLimit: %s\n", powLimit.c_str() );
-        if (true){
-			printf("recalculating params for mainnet.\n");
-			printf("old mainnet genesis nonce: %d\n", genesis.nNonce );
-			printf("old mainnet genesis hash:  %s\n", genesis.GetHash().ToString().c_str());
-			// deliberately empty for loop finds nonce value.
-			/*for(genesis.nNonce = 0; UintToArith256( genesis.GetHash() ) > bnTarget; genesis.nNonce++){
-				std::cout << genesis.GetHash().ToString().c_str() << "\n";
-			}*/
-			printf("new mainnet genesis merkle root: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-			printf("new mainnet genesis nonce: %d\n", genesis.nNonce );
-			printf("new mainnet genesis hash: %s\n", genesis.GetHash().ToString().c_str());
-		}
-
-
+        assert(consensus.hashGenesisBlock == uint256S("0x000006802e01ee7aa8b6bd8b6d6dfacaa03146acdaf3782df68f2f6cfa95c3f5"));
+        assert(genesis.hashMerkleRoot == uint256S("0xff41162d03e3434bd8a92ceb9729c97e4d3035d869c17da2269a6fa5bf5b6655"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        //dnsseed.my.com
         vSeeds.emplace_back("dnsseed.ebitcash.org", true);
-        /*vSeeds.emplace_back("seed.ebitcash.sipa.be", true); // Pieter Wuille, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("dnsseed.bluematt.me", true); // Matt Corallo, only supports x9
-        vSeeds.emplace_back("dnsseed.ebitcash.dashjr.org", false); // Luke Dashjr
-        vSeeds.emplace_back("seed.ebitcashstats.com", true); // Christian Decker, supports x1 - xf
-        vSeeds.emplace_back("seed.ebitcash.jonasschnelli.ch", true); // Jonas Schnelli, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.ebc.petertodd.org", true); // Peter Todd, only supports x1, x5, x9, and xd
-		*/
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,2);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);
