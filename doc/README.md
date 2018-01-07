@@ -30,7 +30,7 @@ Drag eBitcash-Core to your applications folder, and then run eBitcash-Core.
 
 * See the documentation at the [eBitcash Wiki](https://en.ebitcash.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#ebitcash](http://webtchat.freenode.net?channels=ebitcash) on Freenode. If you don't have an IRC client use [webtchat here](http://webtchat.freenode.net?channels=ebitcash).
+* Ask for help on [#ebitcash](http://webchat.freenode.net?channels=ebitcash) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=ebitcash).
 * Ask for help on the [eBitcashTalk](https://ebitcashtalk.org/) forums, in the [Technical Support board](https://ebitcashtalk.org/index.php?board=4.0).
 
 Building
@@ -62,8 +62,8 @@ The eBitcash repo's [root README](/README.md) contains relevant information on t
 
 ### Resources
 * Discuss on the [eBitcashTalk](https://ebitcashtalk.org/) forums, in the [Development & Technical Discussion board](https://ebitcashtalk.org/index.php?board=6.0).
-* Discuss project-specific development on #ebitcash-core-dev on Freenode. If you don't have an IRC client use [webtchat here](http://webtchat.freenode.net/?channels=ebitcash-core-dev).
-* Discuss general eBitcash development on #ebitcash-dev on Freenode. If you don't have an IRC client use [webtchat here](http://webtchat.freenode.net/?channels=ebitcash-dev).
+* Discuss project-specific development on #ebitcash-core-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=ebitcash-core-dev).
+* Discuss general eBitcash development on #ebitcash-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=ebitcash-dev).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
