@@ -128,13 +128,13 @@ git merge commit are mentioned.
 - #9077 `1d4c884` Increase wallet-dump RPC timeout (ryanofsky)
 - #9098 `ecd7db5` Handle zombies and cluttered tmpdirs (MarcoFalke)
 - #8927 `387ec9d` Add script tests for FindAndDelete in pre-segwit and segwit scripts (jl2012)
-- #9200 `eebtc699` bench: Fix subtle counting issue when rescaling iteration count (laanwj)
+- #9200 `eebc699` bench: Fix subtle counting issue when rescaling iteration count (laanwj)
 
 ### Miscellaneous
 - #8838 `094848b` Calculate size and weight of block correctly in CreateNewBlock() (jnewbery)
 - #8920 `40169dc` Set minimum required Boost to 1.47.0 (fanquake)
 - #9251 `a710a43` Improvement of documentation of command line parameter 'whitelist' (wodry)
-- #8932 `106da69` Allow bitcoin-tx to create v2 transactions (ebtcdrak)
+- #8932 `106da69` Allow bitcoin-tx to create v2 transactions (ebcdrak)
 - #8929 `12428b4` add software-properties-common (sigwo)
 - #9120 `08d1c90` bug: Missed one "return false" in recent refactoring in #9067 (UdjinM6)
 - #9067 `f85ee01` Fix exit codes (UdjinM6)
@@ -147,7 +147,7 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 - Alex Morcos
-- EbtcDrak
+- EbcDrak
 - Cory Fields
 - fanquake
 - Gregory Maxwell

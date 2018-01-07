@@ -569,7 +569,7 @@ Tests:
 - `21bf3d2` Add tests for BoostAsioToCNetAddr
 - `b5ad5e7` Add Python test for -rpcbind and -rpcallowip
 - `9ec0306` Add CODESEPARATOR/FindAndDelete() tests
-- `75ebtced` Added many rpc wallet tests
+- `75ebced` Added many rpc wallet tests
 - `0193fb8` Allow multiple regression tests to run at once
 - `92a6220` Hook up sanity checks
 - `3820e01` Extend and move all crypto tests to crypto_tests.cpp
@@ -670,7 +670,7 @@ Thanks to everyone who contributed to this release:
 - Benedict Chan
 - Ben Holden-Crowther
 - Bryan Bishop
-- EbtcDrak
+- EbcDrak
 - Christian von Roques
 - Clinton Christian
 - Cory Fields

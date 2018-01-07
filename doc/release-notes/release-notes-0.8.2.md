@@ -24,12 +24,12 @@ your machine.
 
 Fee Policy changes
 
-The default fee for low-priority transactions is lowered from 0.0005 EBTC 
+The default fee for low-priority transactions is lowered from 0.0005 EBC 
 (for each 1,000 bytes in the transaction; an average transaction is
-about 500 bytes) to 0.0001 EBTC.
+about 500 bytes) to 0.0001 EBC.
 
 Payments (transaction outputs) of 0.543 times the minimum relay fee
-(0.00005430 EBTC) are now considered 'non-standard', because storing them
+(0.00005430 EBC) are now considered 'non-standard', because storing them
 costs the network more than they are worth and spending them will usually
 cost their owner more in transaction fees than they are worth.
 
