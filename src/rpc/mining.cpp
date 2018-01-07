@@ -251,7 +251,7 @@ UniValue getmininginfo(const JSONRPCRequest& request)
 }
 
 
-// NOTE: Unlike wallet RPC (which use EBTC values), mining RPCs follow GBT (BIP 22) in using satoshi amounts
+// NOTE: Unlike wallet RPC (which use EBC values), mining RPCs follow GBT (BIP 22) in using satoshi amounts
 UniValue prioritisetransaction(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() != 3)
@@ -844,7 +844,7 @@ UniValue estimatesmartfee(const JSONRPCRequest& request)
             "                 responsive to short term drops in the prevailing fee market\n"
             "\nResult:\n"
             "{\n"
-            "  \"feerate\" : x.x,     (numeric) estimate fee-per-kilobyte (in EBTC)\n"
+            "  \"feerate\" : x.x,     (numeric) estimate fee-per-kilobyte (in EBC)\n"
             "  \"blocks\" : n         (numeric) block number where estimate was found\n"
             "}\n"
             "\n"
@@ -893,7 +893,7 @@ UniValue estimaterawfee(const JSONRPCRequest& request)
             "               Default: 1\n"
             "\nResult:\n"
             "{\n"
-            "  \"feerate\" : x.x,        (numeric) estimate fee-per-kilobyte (in EBTC)\n"
+            "  \"feerate\" : x.x,        (numeric) estimate fee-per-kilobyte (in EBC)\n"
             "  \"decay\" : x.x,          (numeric) exponential decay (per block) for historical moving average of confirmation data\n"
             "  \"scale\" : x,            (numeric) The resolution of confirmation targets at this time horizon\n"
             "  \"pass\" : {              (json object) information about the lowest range of feerates to succeed in meeting the threshold\n"

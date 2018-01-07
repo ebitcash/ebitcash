@@ -26,7 +26,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(eBitcashUnits::EBTC),
+        QAbstractItemDelegate(parent), unit(eBitcashUnits::EBC),
         platformStyle(_platformStyle)
     {
 
@@ -241,7 +241,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("EBTC")
+    // update the display unit, to not use the default ("EBC")
     updateDisplayUnit();
 }
 
