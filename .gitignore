@@ -114,7 +114,10 @@ ubuntu
 win32
 win64
 macos
-
+.cproject
+.settings/*
+.pydevproject
+.project
 
 
 

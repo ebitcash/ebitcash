@@ -225,7 +225,7 @@ BOOST_AUTO_TEST_CASE(decrypt) {
     TestCrypter::TestDecrypt(crypt,ParseHex("32d0a8974e3afd9c6c3ebf4d66aa4e6419f8c173de25947f98cf8b7ace49449c"));
     TestCrypter::TestDecrypt(crypt,ParseHex("e7c055cca2faa78cb9ac22c9357a90b4778ded9b2cc220a14cea49f931e596ea"));
     TestCrypter::TestDecrypt(crypt,ParseHex("b88efddd668a6801d19516d6830da4ae9811988ccbaf40df8fbb72f3f4d335fd"));
-    TestCrypter::TestDecrypt(crypt,ParseHex("8cae76aa6a43694e961ebcb28c8ca8f8540b84153d72865e8561ddd93fa7bfa9"));
+    TestCrypter::TestDecrypt(crypt,ParseHex("8cae76aa6a43694e961ebtcb28c8ca8f8540b84153d72865e8561ddd93fa7bfa9"));
 
     for (int i = 0; i != 100; i++)
     {

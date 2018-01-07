@@ -17,9 +17,9 @@ eBitcashUnits::eBitcashUnits(QObject *parent):
 QList<eBitcashUnits::Unit> eBitcashUnits::availableUnits()
 {
     QList<eBitcashUnits::Unit> unitlist;
-    unitlist.append(EBC);
-    unitlist.append(mEBC);
-    unitlist.append(uEBC);
+    unitlist.append(EBTC);
+    unitlist.append(mEBTC);
+    unitlist.append(uEBTC);
     return unitlist;
 }
 
@@ -27,9 +27,9 @@ bool eBitcashUnits::valid(int unit)
 {
     switch(unit)
     {
-    case EBC:
-    case mEBC:
-    case uEBC:
+    case EBTC:
+    case mEBTC:
+    case uEBTC:
         return true;
     default:
         return false;
@@ -40,9 +40,9 @@ QString eBitcashUnits::name(int unit)
 {
     switch(unit)
     {
-    case EBC: return QString("EBC");
-    case mEBC: return QString("mEBC");
-    case uEBC: return QString::fromUtf8("μEBC");
+    case EBTC: return QString("EBTC");
+    case mEBTC: return QString("mEBTC");
+    case uEBTC: return QString::fromUtf8("μEBTC");
     default: return QString("???");
     }
 }
@@ -51,9 +51,9 @@ QString eBitcashUnits::description(int unit)
 {
     switch(unit)
     {
-    case EBC: return QString("eBitcashs");
-    case mEBC: return QString("Milli-eBitcashs (1 / 1" THIN_SP_UTF8 "000)");
-    case uEBC: return QString("Micro-eBitcashs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case EBTC: return QString("eBitcashs");
+    case mEBTC: return QString("Milli-eBitcashs (1 / 1" THIN_SP_UTF8 "000)");
+    case uEBTC: return QString("Micro-eBitcashs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -62,9 +62,9 @@ qint64 eBitcashUnits::factor(int unit)
 {
     switch(unit)
     {
-    case EBC:  return 100000000;
-    case mEBC: return 100000;
-    case uEBC: return 100;
+    case EBTC:  return 100000000;
+    case mEBTC: return 100000;
+    case uEBTC: return 100;
     default:   return 100000000;
     }
 }
@@ -73,9 +73,9 @@ int eBitcashUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case EBC: return 8;
-    case mEBC: return 5;
-    case uEBC: return 2;
+    case EBTC: return 8;
+    case mEBTC: return 5;
+    case uEBTC: return 2;
     default: return 0;
     }
 }

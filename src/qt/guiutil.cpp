@@ -186,7 +186,7 @@ bool parseeBitcashURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!eBitcashUnits::parse(eBitcashUnits::EBC, i->second, &rv.amount))
+                if(!eBitcashUnits::parse(eBitcashUnits::EBTC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -225,7 +225,7 @@ QString formateBitcashURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(eBitcashUnits::format(eBitcashUnits::EBC, info.amount, false, eBitcashUnits::separatorNever));
+        ret += QString("?amount=%1").arg(eBitcashUnits::format(eBitcashUnits::EBTC, info.amount, false, eBitcashUnits::separatorNever));
         paramCount++;
     }
 

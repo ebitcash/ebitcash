@@ -99,7 +99,7 @@ Get the [Debian 8.x net installer](http://cdimage.debian.org/mirror/cdimage/arch
 This DVD image can be [validated](https://www.debian.org/CD/verify) using a SHA256 hashing tool, for example on
 Unixy OSes by entering the following in a terminal:
 
-    echo "ad4e8c27c561ad8248d5ebc1d36eb172f884057bfeb2c22ead823f59fa8c3dff  debian-8.5.0-amd64-netinst.iso" | sha256sum -c
+    echo "ad4e8c27c561ad8248d5ebtc1d36eb172f884057bfeb2c22ead823f59fa8c3dff  debian-8.5.0-amd64-netinst.iso" | sha256sum -c
     # (must return OK)
 
 Then start the VM. On the first launch you will be asked for a CD or DVD image. Choose the downloaded ISO.
@@ -446,10 +446,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/ebitcash-core/ebitcash-detached-sigs.git
 
-EBCPATH=/some/root/path/ebitcash
+EBTCPATH=/some/root/path/ebitcash
 SIGPATH=/some/root/path/ebitcash-detached-sigs
 
-./bin/gbuild --url ebitcash=${EBCPATH},signature=${SIGPATH} ../ebitcash/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url ebitcash=${EBTCPATH},signature=${SIGPATH} ../ebitcash/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally

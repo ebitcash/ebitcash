@@ -235,7 +235,7 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         vSeeds.emplace_back("testnet-seed.ebitcash.jonasschnelli.ch", true);
-        vSeeds.emplace_back("seed.tebc.petertodd.org", true);
+        vSeeds.emplace_back("seed.tebtc.petertodd.org", true);
         vSeeds.emplace_back("testnet-seed.bluematt.me", false);
         vSeeds.emplace_back("testnet-seed.ebitcash.schildbach.de", false);
 

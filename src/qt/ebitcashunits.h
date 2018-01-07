@@ -56,9 +56,9 @@ public:
      */
     enum Unit
     {
-        EBC,
-        mEBC,
-        uEBC
+        EBTC,
+        mEBTC,
+        uEBTC
     };
 
     enum SeparatorStyle
