@@ -3,7 +3,7 @@ eBitcash Core integration/staging tree
 
 [![Build Status](https://travis-ci.org/ebitcash/ebitcash.svg?branch=master)](https://travis-ci.org/ebitcash/ebitcash)
 
-https://ebitcashcore.org
+https://ebitcash.org
 
 What is eBitcash?
 ----------------
@@ -16,7 +16,7 @@ software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
 the eBitcash Core software, see https://ebitcash.org/en/download, or read the
-[original whitepaper](https://ebitcashcore.org/ebitcash.pdf).
+[original whitepaper](https://ebitcash.org/ebitcash.pdf).
 
 License
 -------

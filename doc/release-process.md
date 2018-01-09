@@ -84,7 +84,7 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://ebitcashcore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs https://ebitcash.org/cfields/osslsigncode-Backports-to-1.7.1.patch
     wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
     popd
 
@@ -292,9 +292,9 @@ ebitcash.org (see below for ebitcash.org update instructions).
 
   - ebitcash-dev and ebitcash-core-dev mailing list
 
-  - eBitcash Core announcements list https://ebitcashcore.org/en/list/announcements/join/
+  - eBitcash Core announcements list https://ebitcash.org/en/list/announcements/join/
 
-  - ebitcashcore.org blog post
+  - ebitcash.org blog post
 
   - Update title of #ebitcash on Freenode IRC
 
