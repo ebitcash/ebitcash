@@ -46,8 +46,6 @@ else
     NEWINFO="// No build information available"
 fi
 
-NEWINFO="#define BUILD_DESC \"$RAWDESC\""
-
 # only update build.h if necessary
 if [ "$INFO" != "$NEWINFO" ]; then
     echo "$NEWINFO" >"$FILE"
