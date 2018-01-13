@@ -45,7 +45,7 @@ elif [ -n "$SUFFIX" ]; then
 else
     NEWINFO="// No build information available"
 fi
-NEWINFO="#define BUILD_DESC \"$DESC\""
+NEWINFO="#define BUILD_DESC "v0.15.0"
 # only update build.h if necessary
 if [ "$INFO" != "$NEWINFO" ]; then
     echo "$NEWINFO" >"$FILE"
