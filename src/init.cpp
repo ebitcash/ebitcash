@@ -506,9 +506,11 @@ std::string HelpMessage(HelpMessageMode mode)
 std::string LicenseInfo()
 {
     const std::string URL_SOURCE_CODE = "<https://github.com/ebitcash/ebitcash>";
-    const std::string URL_WEBSITE = "<https://ebitcashcore.org>";
+    const std::string URL_WEBSITE = "<https://ebitcash.org>";
 
-    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
+    return strprintf(_("Copyright (C) %i-%i"), 2009, 2015) + " The Bitcoin Core developers" + "\n" + CopyrightHolders(
+
+    		strprintf(_("Copyright (C) %i-%i"), 2015, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),
